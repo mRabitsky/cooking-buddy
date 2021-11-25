@@ -1,0 +1,303 @@
+{
+    "tasks": {
+        "asparagus": {
+            "wash": {
+                "recipes": [
+                    {
+                        "duration": 5,
+                        "demands": [[1, "sink"], [1, "worker"]]
+                    }
+                ],
+                "successors": [["asparagus.prep", -1]]
+            },
+            "prep": {
+                "recipes": [
+                    {
+                        "duration": 5,
+                        "demands": [[1, "counter_top"], [1, "worker"]]
+                    }
+                ],
+                "successors": [["asparagus.bake", -1]]
+            },
+            "bake": {
+                "recipes": [
+                    {
+                        "duration": 15,
+                        "demands": [[1, "oven"]]
+                    }
+                ]
+            }
+        },
+        "duck": {
+            "recipes": [
+                {
+                    "duration": 180,
+                    "demands": [[1, "oven"]]
+                }
+            ]
+        },
+        "gratin": {
+            "prep": {
+                "recipes": [
+                    {
+                        "duration": 20,
+                        "demands": [[1, "food_processor"], [1, "worker"]]
+                    },
+                    {
+                        "duration": 40,
+                        "demands": [[1, "counter_top"], [1, "worker"]]
+                    }
+                ],
+                "successors": [["gratin.bake", 10]]
+            },
+            "bake": {
+                "recipes": [
+                    {
+                        "duration": 90,
+                        "demands": [[1, "oven"]]
+                    }
+                ]
+            }
+        },
+        "green_beans": {
+            "wash": {
+                "recipes": [
+                    {
+                        "duration": 5,
+                        "demands": [[1, "sink"], [1, "worker"]]
+                    }
+                ],
+                "successors": [["green_beans.boil", -1]]
+            },
+            "boil": {
+                "recipes": [
+                    {
+                        "duration": 5,
+                        "demands": [[1, "burner"]]
+                    }
+                ],
+                "successors": [["green_beans.shock", 0]]
+            },
+            "shock": {
+                "recipes": [
+                    {
+                        "duration": 10,
+                        "demands": []
+                    }
+                ]
+            }
+        },
+        "salad": {
+            "wash": {
+                "recipes": [
+                    {
+                        "duration": 5,
+                        "demands": [[1, "sink"], [1, "worker"]]
+                    }
+                ],
+                "successors": [["salad.assemble", -1]]
+            },
+            "make_dressing": {
+                "recipes": [
+                    {
+                        "duration": 5,
+                        "demands": [[1, "worker"]]
+                    }
+                ],
+                "successors": [["salad.assemble", -1]]
+            },
+            "assemble": {
+                "recipes": [
+                    {
+                        "duration": 5,
+                        "demands": [[1, "counter_top"], [1, "worker"]]
+                    }
+                ]
+            }
+        },
+        "stuffing": {
+            "cornbread": {
+                "prep": {
+                    "recipes": [
+                        {
+                            "duration": 15,
+                            "demands": [[1, "counter_top"], [1, "worker"]]
+                        }
+                    ],
+                    "successors": [["stuffing.cornbread.bake", 10]]
+                },
+                "bake": {
+                    "recipes": [
+                        {
+                            "duration": 30,
+                            "demands": [[1, "oven"]]
+                        }
+                    ],
+                    "successors": [["stuffing.cornbread.cool", 0]]
+                },
+                "cool": {
+                    "recipes": [
+                        {
+                            "duration": 30,
+                            "demands": []
+                        }
+                    ],
+                    "successors": [["stuffing.cornbread.dry", 0]]
+                },
+                "dry": {
+                    "recipes": [
+                        {
+                            "duration": 30,
+                            "demands": [[1, "oven"]]
+                        }
+                    ],
+                    "successors": [["stuffing.combine", -1]]
+                }
+            },
+            "mise": {
+                "recipes": [
+                    {
+                        "duration": 25,
+                        "demands": [[1, "counter_top"], [1, "food_processor"], [1, "worker"]]
+                    }
+                ],
+                "successors": [["stuffing.cook", -1]]
+            },
+            "cook": {
+                "recipes": [
+                    {
+                        "duration": 20,
+                        "demands": [[1, "burner"], [1, "worker"]]
+                    }
+                ],
+                "successors": [["stuffing.combine", -1]]
+            },
+            "combine": {
+                "recipes": [
+                    {
+                        "duration": 10,
+                        "demands": [[1, "counter_top"], [1, "worker"]]
+                    }
+                ],
+                "successors": [["stuffing.bake", 20]]
+            },
+            "bake": {
+                "recipes": [
+                    {
+                        "duration": 60,
+                        "demands": [[1, "oven"]]
+                    }
+                ]
+            }
+        },
+        "sweet_potatoes": {
+            "prep": {
+                "recipes": [
+                    {
+                        "duration": 20,
+                        "demands": [[1, "counter_top"], [1, "worker"]]
+                    }
+                ],
+                "successors": [["sweet_potatoes.bake", -1]]
+            },
+            "bake": {
+                "recipes": [
+                    {
+                        "duration": 30,
+                        "demands": [[1, "oven"]]
+                    }
+                ]
+            }
+        },
+        "turkey": {
+            "bring_to_room_temp": {
+                "recipes": [
+                    {
+                        "duration": 120,
+                        "demands": []
+                    }
+                ],
+                "successors": [["turkey.bake.set", -1]]
+            },
+            "shellac": {
+                "prep": {
+                    "recipes": [
+                        {
+                            "duration": 20,
+                            "demands": [[1, "counter_top"] ,[1, "worker"]]
+                        }
+                    ],
+                    "successors": [["turkey.shellac.combine", -1]]
+                },
+                "combine": {
+                    "recipes": [
+                        {
+                            "duration": 15,
+                            "demands": [[1, "burner"] ,[1, "worker"]]
+                        }
+                    ],
+                    "successors": [["turkey.bake.baste.1", 15]]
+                }
+            },
+            "bake": {
+                "set": {
+                    "recipes": [
+                        {
+                            "duration": 25,
+                            "demands": [[1, "oven"]]
+                        }
+                    ],
+                    "successors": [["turkey.bake.baste.1", 0]]
+                },
+                "baste": {
+                    "1": {
+                        "recipes": [
+                            {
+                                "duration": 20,
+                                "demands": [[1, "oven"]]
+                            }
+                        ],
+                        "successors": [["turkey.bake.baste.2", 0]]
+                    },
+                    "2": {
+                        "recipes": [
+                            {
+                                "duration": 20,
+                                "demands": [[1, "oven"]]
+                            }
+                        ],
+                        "successors": [["turkey.bake.baste.3", 0]]
+                    },
+                    "3": {
+                        "recipes": [
+                            {
+                                "duration": 20,
+                                "demands": [[1, "oven"]]
+                            }
+                        ],
+                        "successors": [["turkey.bake.rest", 0]]
+                    }
+                },
+                "rest": {
+                    "recipes": [
+                        {
+                            "duration": 45,
+                            "demands": []
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "resources": [
+        ["burner", 5],
+        ["counter_top", 3],
+        ["food_processor", 1],
+        ["oven", 2],
+        ["sink", 1],
+        ["worker", 2]
+    ],
+    "params": {
+        "dinner": "17:00"
+    }
+}
